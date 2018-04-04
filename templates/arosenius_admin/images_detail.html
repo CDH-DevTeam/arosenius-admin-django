@@ -1,0 +1,14 @@
+{% extends "arosenius-admin-django/images_base.html" %}
+
+{% block title %}
+    {{ images }}
+{% endblock %}
+
+{% block content %}
+    <h1><a href={% url "images_list" %}>Images</a></h1>
+    <h2>{{ images }} | <a href={% url "images_update" images.pk %}>Update</a> | 
+    <form style="display:inline;" action={% url "images_delete" images.pk %} method="post" onsubmit="return confirm('Are you sure you want to delete {{ images }}?')">{% csrf_token %}
+    <input type="submit" value="Delete" />
+    </form>
+    </h2>
+{% endblock %}

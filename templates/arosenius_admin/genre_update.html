@@ -1,0 +1,19 @@
+{% extends "arosenius-admin-django/genre_base.html" %}
+
+{% block title %}
+    Update {{ genre }}
+{% endblock %}
+
+{% block content %}
+<h1><a href={% url "genre_list" %}>Genre</a></h1>
+<h2>Update {{ genre }}</h2>
+
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update" />
+</form>
+<a href={% url "genre_detail" genre.pk %}>Cancel</a>
+<form style="display:inline;" action={% url "genre_delete" genre.pk %} method="post" onsubmit="return confirm('Are you sure you want to delete {{ genre }}?')">{% csrf_token %}
+    <input type="submit" value="Delete" />
+</form>
+{% endblock %}

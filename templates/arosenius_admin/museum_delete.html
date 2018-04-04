@@ -1,0 +1,17 @@
+{% extends "arosenius-admin-django/museum_base.html" %}
+
+{% block title %}
+    Delete {{ museum }}
+{% endblock %}
+
+{% block content %}
+<h1>Delete {{ museum }}</h1>
+
+<form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete {{ museum }}?</p>
+    <input type="submit" value="Confirm" />
+</form>
+
+<a href={% url "museum_detail" museum.pk %}>Cancel</a>
+
+{% endblock %}

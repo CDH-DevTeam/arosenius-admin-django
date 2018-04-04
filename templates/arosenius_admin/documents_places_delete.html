@@ -1,0 +1,17 @@
+{% extends "arosenius-admin-django/documents_places_base.html" %}
+
+{% block title %}
+    Delete {{ documents_places }}
+{% endblock %}
+
+{% block content %}
+<h1>Delete {{ documents_places }}</h1>
+
+<form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete {{ documents_places }}?</p>
+    <input type="submit" value="Confirm" />
+</form>
+
+<a href={% url "documents_places_detail" documents_places.pk %}>Cancel</a>
+
+{% endblock %}

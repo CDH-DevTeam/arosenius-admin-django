@@ -1,0 +1,20 @@
+{% extends "arosenius-admin-django/documents_tags_base.html" %}
+
+{% block title %}
+    DocumentsTagss
+{% endblock %}
+
+{% block content %}
+    <h1>DocumentsTagss</h1>
+    <h2><a href={% url "documents_tags_create" %}>Create new DocumentsTags</a></h2>
+    <ul>
+    {% for documents_tags in documents_tags_list %}
+        <li><a href={% url "documents_tags_detail" documents_tags.pk %}>{{ documents_tags }}</a> | <a href={% url "documents_tags_update" documents_tags.pk %}>Update</a> | <form style="display:inline;" action={% url "documents_tags_delete" documents_tags.pk %} method="post" onsubmit="return confirm('Are you sure you want to delete {{ documents_tags }}?')">{% csrf_token %}
+    <input type="submit" value="Delete" />
+    </form></li>
+    {% empty %}
+        <li>No DocumentsTagss yet.</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+

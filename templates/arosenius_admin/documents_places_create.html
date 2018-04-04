@@ -1,0 +1,16 @@
+{% extends "arosenius-admin-django/documents_places_base.html" %}
+
+{% block title %}
+    Create DocumentsPlaces
+{% endblock %}
+
+{% block content %}
+<h1><a href={% url "documents_places_list" %}>DocumentsPlaces</a></h1>
+<h2>Create DocumentsPlaces</h2>
+
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" />
+</form>
+<a href={% url "documents_places_list" %}>Cancel</a>
+{% endblock %}

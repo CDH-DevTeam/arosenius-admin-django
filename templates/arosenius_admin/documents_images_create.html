@@ -1,0 +1,16 @@
+{% extends "arosenius-admin-django/documents_images_base.html" %}
+
+{% block title %}
+    Create DocumentsImages
+{% endblock %}
+
+{% block content %}
+<h1><a href={% url "documents_images_list" %}>DocumentsImages</a></h1>
+<h2>Create DocumentsImages</h2>
+
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" />
+</form>
+<a href={% url "documents_images_list" %}>Cancel</a>
+{% endblock %}

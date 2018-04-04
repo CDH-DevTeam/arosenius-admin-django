@@ -1,0 +1,20 @@
+{% extends "arosenius-admin-django/documents_images_base.html" %}
+
+{% block title %}
+    DocumentsImagess
+{% endblock %}
+
+{% block content %}
+    <h1>DocumentsImagess</h1>
+    <h2><a href={% url "documents_images_create" %}>Create new DocumentsImages</a></h2>
+    <ul>
+    {% for documents_images in documents_images_list %}
+        <li><a href={% url "documents_images_detail" documents_images.pk %}>{{ documents_images }}</a> | <a href={% url "documents_images_update" documents_images.pk %}>Update</a> | <form style="display:inline;" action={% url "documents_images_delete" documents_images.pk %} method="post" onsubmit="return confirm('Are you sure you want to delete {{ documents_images }}?')">{% csrf_token %}
+    <input type="submit" value="Delete" />
+    </form></li>
+    {% empty %}
+        <li>No DocumentsImagess yet.</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+

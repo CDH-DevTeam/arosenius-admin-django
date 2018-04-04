@@ -1,0 +1,17 @@
+{% extends "arosenius-admin-django/documents_genres_base.html" %}
+
+{% block title %}
+    Delete {{ documents_genres }}
+{% endblock %}
+
+{% block content %}
+<h1>Delete {{ documents_genres }}</h1>
+
+<form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete {{ documents_genres }}?</p>
+    <input type="submit" value="Confirm" />
+</form>
+
+<a href={% url "documents_genres_detail" documents_genres.pk %}>Cancel</a>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "arosenius-admin-django/genre_base.html" %}
+
+{% block title %}
+    Create Genre
+{% endblock %}
+
+{% block content %}
+<h1><a href={% url "genre_list" %}>Genre</a></h1>
+<h2>Create Genre</h2>
+
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" />
+</form>
+<a href={% url "genre_list" %}>Cancel</a>
+{% endblock %}

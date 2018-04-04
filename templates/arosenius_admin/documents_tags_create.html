@@ -1,0 +1,16 @@
+{% extends "arosenius-admin-django/documents_tags_base.html" %}
+
+{% block title %}
+    Create DocumentsTags
+{% endblock %}
+
+{% block content %}
+<h1><a href={% url "documents_tags_list" %}>DocumentsTags</a></h1>
+<h2>Create DocumentsTags</h2>
+
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" />
+</form>
+<a href={% url "documents_tags_list" %}>Cancel</a>
+{% endblock %}
